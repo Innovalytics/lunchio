@@ -2,6 +2,10 @@
   outline: none;
 }
 
+main.container {
+  min-height: 160px;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -88,6 +92,10 @@ body {
 
 .logo {
   max-height: 50px;
+}
+
+.all-meals-nav i {
+  margin-right: 8px;
 }
 
 /* Responsive: Portrait tablets and up */

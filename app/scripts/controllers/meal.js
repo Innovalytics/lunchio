@@ -8,15 +8,26 @@
  * Controller of the lunchioApp
  */
 angular.module('lunchioApp')
-  .controller('MealCtrl', ['$scope', 'Foodservice', function ($scope, Foodservice) {
+  .controller('MealCtrl', ['$scope', '$rootScope', 'Foodservice', function ($scope, $rootScope, Foodservice) {
+
+    function emptyMeal() {
+      $scope.meal = {
+        items: [],
+        metrics: {
+          energy_kcal: 0
+        }
+      };
+    }
+
+    function clearSearchResults() {
+      $scope.foods = {};
+      $scope.searchTerm = '';
+    }
+
+    emptyMeal();
+
   	$scope.foods = {};
     $scope.someResults = true;
-    $scope.meal = {
-      items: [],
-      metrics: {
-        energy_kcal: 0
-      }
-    };
 
     $scope.doSearch = function() {
       var term = $scope.searchTerm;
@@ -46,10 +57,16 @@ angular.module('lunchioApp')
 
     $scope.getTotal = function (metric) {
       $scope.meal.metrics[metric] = 0;
-      
+
       $scope.meal.items.forEach(function (item) {
         $scope.meal.metrics[metric] += item[metric];
       });
+    }
+
+    $scope.addMeal = function () {
+      $rootScope.$broadcast('addMeal', $scope.meal);
+      emptyMeal();
+      clearSearchResults();
     }
 
     $scope.$watchCollection('meal.items', function () {
