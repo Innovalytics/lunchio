@@ -22,8 +22,8 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/meal.html',
+        controller: 'MealCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -38,6 +38,13 @@ angular
         controller: 'ContactCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/meal'
       });
   });
+
+document.ondblclick = function(evt) {
+    if (window.getSelection)
+        window.getSelection().removeAllRanges();
+    else if (document.selection)
+        document.selection.empty();
+}

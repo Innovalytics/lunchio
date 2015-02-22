@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-4">
+	<div class="col-md-8">
 		<div class="row">
 			<div class="search-bar col-md-12">
 				<form name="search-form" ng-submit="doSearch()">
@@ -34,9 +34,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-4">
 		<div class="well">
-			<h3>yo</h3>
+			<div class="meal-title">Your meal so far...</div>
+			<div class="meal-items">
+				<div ng-repeat="item in meal.items" ng-click="showDetails()">
+					<meal-item item="item" meal-index="$index"></meal-item>
+				</div>
+			</div>
+			<hr>
+			<div class="meal-total-calories">Total Calories: {{meal.metrics.energy_kcal}}</div>
 		</div>
 	</div>
 </div>

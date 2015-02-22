@@ -39,7 +39,7 @@ angular.module('lunchioApp')
 				href: 'http://api.namara.io/v0/data_sets/b0994377-c3a3-4808-92c6-991c672630f5/data/en-0'
 			},
 			baked: {
-				href: 'http://api.namara.io/v0/data_sets/5e959f5d-d0a0-40ee-b8b0-f0f01e4f5071/data/en-2'
+				href: 'http://api.namara.io/v0/data_sets/5e959f5d-d0a0-40ee-b8b0-f0f01e4f5071/data/en-3'
 			},
 			eggs: {
 				href: 'http://api.namara.io/v0/data_sets/aa2594fe-7b61-4587-97f7-2f92fbf9a39b/data/en-1'
@@ -66,16 +66,8 @@ angular.module('lunchioApp')
 			find: function (category, term, callback) {
 				var key = 'foods.' + category;
 
-				/*
-				if (localStorage[key]) {
-					callback(null, JSON.parse(localStorage[key]));
-					return;
-				}
-				*/
-
 				var url = categories[category].href;
-				//var whereClause = 'energy_kcal IS NOT NULL'
-				var whereClause = 'energy_kcal IS NOT NULL AND food_name = \'' + term.toUpperCase() + '\'';
+				var whereClause = 'energy_kcal IS NOT NULL AND food_name LIKE \'%' + term.toUpperCase() + '%\'';
 
 				var options = {
 					params: {

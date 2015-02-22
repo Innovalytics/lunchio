@@ -1,3 +1,7 @@
+.search-bar {
+	margin-bottom: 24px;
+}
+
 .food-section-title, .empty-results {
 	text-transform: uppercase;
 	font-weight: bold;
@@ -7,8 +11,17 @@
 }
 
 .food-item {
+	margin: 12px 0;
+	padding: 8px;
 	font-size: 18px;
 	line-height: 22px;
+	cursor: pointer;
+	transition: background-color 0.5s;
+	border-radius: 2px;
+}
+
+.food-item:hover {
+	background-color: #A6D785;
 }
 
 .food-item > span {
@@ -18,5 +31,43 @@
 .food-item-adder {
 	outline: none;
 	color: #458B00;
-	cursor: pointer;	
+}
+
+.meal-title {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.meal-item {
+	font-size: 12px;
+	margin: 8px 0px;
+	padding: 5px;
+	cursor: pointer;
+	transition: 0.5s;
+	border-radius: 2px;
+	outline: none;
+}
+
+.meal-item:hover {
+	background-color: #343434;
+	color: white;
+}
+
+.meal-item:hover .meal-ops .op {
+	color: white;
+}
+
+.meal-item-title {
+	margin-bottom: 4px;
+}
+
+.meal-ops {
+	border-top: 1px dotted #cccccc;
+	text-align: right;
+}
+
+.meal-ops .op {
+	font-size: 8px;
+	text-transform: uppercase;
+	color: #343434;
 }

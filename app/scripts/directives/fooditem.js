@@ -15,6 +15,9 @@ angular.module('lunchioApp')
       	item: '='
       },
       link: function postLink(scope, element, attrs) {
+      	scope.addItemToMeal = function () {
+      		scope.$emit('addItemToMeal', scope.item);
+      	}
       }
     };
   });
