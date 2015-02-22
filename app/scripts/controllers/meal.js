@@ -80,7 +80,7 @@ angular.module('lunchioApp')
       //See "/doc/calorie-intake.xlsx" for reference
       //TODO - Implement more encompassing scoring system that and include additional inputs such as consumer's gender and age
       //TODO - Add wider range of scores.  For now 1 = Good, 0 = Neutral, -1 = Bad
-      if (totalCalories < 530 && totalSodium < 343 && totalProtien > 10) {
+      if (totalCalories < 530 && totalSodium < 450 && totalProtien > 3) {
         $scope.meal.score = 1;
       }
       else if (totalCalories >= 530 && totalSodium >= 343) {
