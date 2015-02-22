@@ -1,14 +1,42 @@
-<h2>Sweets</h2>
-<div ng-repeat="food in foods.sweets">{{food.food_name}}</div>
-
-<h2>Fast Foods</h2>
-<div ng-repeat="food in foods.fastfoods">{{food.food_name}}</div>
-
-<h2>Snacks</h2>
-<div ng-repeat="food in foods.snacks">{{food.food_name}}</div>
-
-<h2>Fruits</h2>
-<h2>Nuts</h2>
-<h2>Baked</h2>
-<h2>Eggs</h2>
-<h2>Misc</h2>
+<div class="row">
+	<div class="col-md-4">
+		<div class="row">
+			<div class="search-bar col-md-12">
+				<form name="search-form" ng-submit="doSearch()">
+					<!--
+					<input type="search" class="form-control" name="search" ng-model="search.food_name" placeholder="Search for...">
+					-->
+					<div class="input-group">
+				      <input type="search" class="form-control" name="search" ng-model="searchTerm" placeholder="Search for...">
+				      <span class="input-group-btn">
+				        <button class="btn btn-default" type="button" ng-click="doSearch()">Go!</button>
+				      </span>
+				    </div>
+				</form>
+			</div>
+			<div class="col-md-12">
+				<food-section section="foods.meat" section-title="Meat"></food-section>
+				<food-section section="foods.fish" section-title="Fish"></food-section>
+				<food-section section="foods.eggs" section-title="Eggs"></food-section>
+				<food-section section="foods.sweets" section-title="Sweets"></food-section>
+				<food-section section="foods.baked" section-title="Baked"></food-section>
+				<food-section section="foods.vegetables" section-title="Vegetables"></food-section>
+				<food-section section="foods.fruits" section-title="Fruits"></food-section>
+				<food-section section="foods.snacks" section-title="Snacks"></food-section>
+				<food-section section="foods.nuts" section-title="Nuts"></food-section>
+				<food-section section="foods.mixed" section-title="Mixed"></food-section>
+				<food-section section="foods.bread" section-title="Bread"></food-section>
+				<food-section section="foods.diary" section-title="Diary"></food-section>
+				<food-section section="foods.beverages" section-title="Beverages"></food-section>
+				<food-section section="foods.misc" section-title="Misc"></food-section>
+				<food-section section="foods.fastFoods" section-title="Fast Foods"></food-section>
+				<div class="empty-results" ng-if="!someResults">Sorry, no items found</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-8">
+		<div class="well">
+			<h3>yo</h3>
+		</div>
+	</div>
+</div>

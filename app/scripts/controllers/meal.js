@@ -10,16 +10,31 @@
 angular.module('lunchioApp')
   .controller('MealCtrl', ['$scope', 'Foodservice', function ($scope, Foodservice) {
   	$scope.foods = {};
+    $scope.someResults = true;
 
-  	Foodservice.find('sweets', function (err, foods) {
-  		$scope.foods.sweets = foods;
-  	});
+    $scope.doSearch = function() {
+      var term = $scope.searchTerm;
+      var tasks = [];
 
-  	Foodservice.find('fastfoods', function (err, foods) {
-  		$scope.foods.fastfoods = foods;
-  	});
+      $scope.someResults = true;
+      
+      Object.keys(Foodservice.categories).forEach(function (key) {
+        tasks.push(function (callback) {
+          Foodservice.find(key, term, function (err, foods) {
+            $scope.foods[key] = foods;
+            callback();
+          });
+        })
+      });
 
-  	Foodservice.find('snacks', function (err, foods) {
-  		$scope.foods.snacks = foods;
-  	});
+      async.parallelLimit(tasks, 2, function (err) {
+        $scope.someResults = Object.keys($scope.foods).some(function (key) {
+          if ($scope.foods[key] && $scope.foods[key].length > 0) {
+            return true;
+          }
+
+          return false;
+        });
+      });
+    }
   }]);

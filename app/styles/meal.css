@@ -1,0 +1,22 @@
+.food-section-title, .empty-results {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 20px;
+	color: #cccccc;
+	margin-top: 18px;
+}
+
+.food-item {
+	font-size: 18px;
+	line-height: 22px;
+}
+
+.food-item > span {
+	vertical-align: middle;
+}
+
+.food-item-adder {
+	outline: none;
+	color: #458B00;
+	cursor: pointer;	
+}

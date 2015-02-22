@@ -11,12 +11,11 @@ angular.module('lunchioApp')
   .service('Foodservice', ['$http', function ($http) {
 		var NAMARA_API_KEY = 'de8b99fc46d44e6f3db0bd841ae7f007618c6393ed9d35c43d68e75c62dd9180';
 		var NAMARA_API_KEY_2 = '3640b953bdec14e68370fb5772e35fb7c9ca32167fa229378dd4d5003876cf2e';
+		var NAMARA_API_KEY_3 = 'f2088de5083cadca54a8ba7351730ee5afd3eee767c092d1fd96f69dcdb38969';
 
 		var categories = {
 			sweets: {
 				href: 'http://api.namara.io/v0/data_sets/25ca7719-521b-4e3b-9b2d-516ab3a85cd5/data/en-0'
-			},
-			soups: {
 			},
 			fastfoods: {
 				href: 'http://api.namara.io/v0/data_sets/6200bc9b-2c9d-4457-9afe-3569b8620dc2/data/en-0'
@@ -63,12 +62,32 @@ angular.module('lunchioApp')
 		};
 
 		return {
-			find: function (category, callback) {
-				var url = categories[category].href;
+			categories: categories,
+			find: function (category, term, callback) {
+				var key = 'foods.' + category;
 
-				$http.get(url, { params: { 'api_key': NAMARA_API_KEY }})
+				/*
+				if (localStorage[key]) {
+					callback(null, JSON.parse(localStorage[key]));
+					return;
+				}
+				*/
+
+				var url = categories[category].href;
+				//var whereClause = 'energy_kcal IS NOT NULL'
+				var whereClause = 'energy_kcal IS NOT NULL AND food_name = \'' + term.toUpperCase() + '\'';
+
+				var options = {
+					params: {
+						'api_key': NAMARA_API_KEY_3,
+						'where': whereClause
+					}
+				};
+
+				$http.get(url, options)
 					.success(function (data, status) {
-						callback(null,  data);
+						localStorage[key] = JSON.stringify(data);
+						callback(null, data);
 					})
 					.error(function (data, status) {
 						callback('Error getting food');
