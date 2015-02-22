@@ -14,10 +14,10 @@ angular.module('lunchioApp')
       scope: {
       	item: '='
       },
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope) {
       	scope.addItemToMeal = function () {
       		scope.$emit('addItemToMeal', scope.item);
-      	}
+      	};
       }
     };
   });

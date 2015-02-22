@@ -62,7 +62,7 @@
 	color: white;
 }
 
-.meal-item:hover .meal-ops .op {
+.meal-item:hover .meal-item-ops .op {
 	color: white;
 }
 
@@ -91,10 +91,58 @@
 	padding-top: 8px;
 }
 
-.meal-ops {
+.meal-pnl .meal-ops {
 	border-top: 1px solid #cccccc;
 	margin-top: 8px;
 	padding-top: 8px;
 	text-align: right;
 }
 
+.all-meals-list .meal-header {
+	margin: 4px 0;
+	padding: 4px 0;
+	border-bottom: 1px solid #343434;
+}
+
+.all-meals-list .meal-header .meal-title {
+	font-size: 24px;
+	color: #343434;
+}
+
+.all-meals-list .meal-header .meal-ops {
+	padding-top: 8px;
+}
+
+.all-meals-list .meal-header .meal-ops .op {
+	text-transform: uppercase;
+}
+
+.all-meals-list-ops {
+	border-top: 1px solid #cccccc;
+	background-color: #ededed;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 12px;
+	text-align: center;
+}
+
+.all-meals-list-ops .sep {
+	color: white;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+.meal-score-icon {
+	max-width: 200px;
+	display: inline-block;
+}
+
+.meal-score-desc {
+	display: inline-block;
+	max-width: 240px;
+	font-size: 18px;
+	padding: 12px;
+	margin-left: 15px
+}

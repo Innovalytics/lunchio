@@ -6,12 +6,20 @@
 	<div class="meal-item-details" ng-show="displayDetails">
 		<table class="table">
 			<tr>
-				<td>Calories</td>
+				<td align="right">Calories</td>
 				<td ng-bind="item.energy_kcal"></td>
+				<td align="right">Fat</td>
+				<td ng-bind="item.total_fat_g + ' g'"></td>
+			</tr>
+			<tr>
+				<td align="right">Sodium</td>
+				<td ng-bind="item.sodium_mg + ' mg'"></td>
+				<td align="right">Protein</td>
+				<td ng-bind="item.protein_g + ' g'"></td>
 			</tr>
 		</table>
 		<div class="meal-item-ops">
-			<span class="op" ng-click="remove()"><i class="fa fa-times"></i> Remove</span>
+			<span class="op" ng-click="remove()"><i class="fa fa-times"></i>Remove</span>
 		</div>
 	</div>
 </div>

@@ -1,8 +1,58 @@
-<p>This is the allmeals view.</p>
-<div>
-	<ul>
+<div class="all-meals-list col-md-12" ng-cloak>
+	<ul class="list-unstyled">
 		<li ng-repeat="meal in allMeals">
-			{{meal}}
+			<div class="meal-header">
+				<span class="meal-title">Meal {{$index + 1}}</span>
+				<div class="pull-right meal-ops hidden-print">
+					<button type="button" class="op btn btn-xs" ng-click="remove($index)"><i class="fa fa-times"></i><span>Remove</span></button>
+				</div>
+			</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>
+							Name	
+						</th>
+						<th>
+							Calories
+						</th>
+						<th>
+							Fat
+						</th>
+						<th>
+							Cholesterol
+						</th>
+						<th>
+							Sodium
+						</th>
+						<th>
+							Carbohydrate
+						</th>
+						<th>
+							Protein
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in meal.items">
+						<td style="width: 50%">{{item.food_name}}</td>
+						<td style="width: 9%">{{item.energy_kcal}}</td>
+						<td style="width: 9%">{{item.total_fat_g}} g</td>
+						<td style="width: 9%">{{item.cholesterol_mg}} mg</td>
+						<td style="width: 9%">{{item.sodium_mg}} mg</td>
+						<td style="width: 14%">{{item.carbohydrate_g}} g</td>
+						<td style="width: 9%">{{item.protein_g}} g</td>
+					</tr>
+				</tbody>
+			</table>
 		</li>
 	</ul>
+</div>
+<div class="all-meals-list-ops hidden-print">
+	<a class="btn btn-default" href="mailto:{{ generateMailTo() }}"><i class="fa fa-envelope-o"></i><span>Email<span></a>
+	<a class="btn btn-default" href="javascript:window.print()"><i class="fa fa-print"></i><span>Print<span></a>
+	<span class="sep">|</span>
+	<a class="btn btn-default" href="http://www.grocerygateway.com" target="orderonline"><i class="fa fa-shopping-cart"></i><span>Order Online<span></a>
+	<span class="sep">|</span>
+	<button type="button" class="btn btn-default" ng-click="createNewAllMeals()"><i class="fa fa-file-o"></i><span>New<span></a>
 </div>

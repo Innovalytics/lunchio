@@ -15,8 +15,6 @@ angular.module('lunchioApp')
       	section: '=',
       	sectionTitle: '@'
       },
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-      }
+      restrict: 'E'
     };
   });

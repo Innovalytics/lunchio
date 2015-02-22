@@ -11,7 +11,7 @@ angular.module('lunchioApp')
   .controller('TopCtrl', ['$scope', 'Allmealsservice', function ($scope, Allmealsservice) {
   	$scope.allMealsCount = Allmealsservice.getAll().length;
 
-  	$scope.$on('mealAdded', function () {
+  	$scope.$on('allMealsChanged', function () {
 	  	$scope.allMealsCount = Allmealsservice.getAll().length;
   	});
   }]);

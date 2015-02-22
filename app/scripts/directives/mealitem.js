@@ -15,16 +15,16 @@ angular.module('lunchioApp')
    		},
 		templateUrl: 'templates/mealitem.html',
 		restrict: 'E',
-		link: function postLink(scope, element, attrs) {
+		link: function postLink(scope) {
 			scope.displayDetails = false;
 
 			scope.showDetails = function () {
 				scope.displayDetails = !scope.displayDetails;
-			}
+			};
 
 			scope.remove = function () {
 				scope.$emit('removeMealItem', scope.mealIndex());
-			}
+			};
 		}
     };
   });

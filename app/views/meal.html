@@ -7,9 +7,11 @@
 					<input type="search" class="form-control" name="search" ng-model="search.food_name" placeholder="Search for...">
 					-->
 					<div class="input-group">
-				      <input type="search" class="form-control" name="search" ng-model="searchTerm" placeholder="Search for...">
+				      <input type="search" class="form-control" name="search" ng-model="searchTerm" placeholder="Search for food and drinks like chicken, apple or juice">
 				      <span class="input-group-btn">
-				        <button class="btn btn-default" type="button" ng-click="doSearch()">Go!</button>
+				        <button class="btn btn-default" type="button" ng-click="doSearch()">
+				        	<i class="fa fa-search"></i>
+				        </button>
 				      </span>
 				    </div>
 				</form>
@@ -29,7 +31,7 @@
 				<food-section section="foods.diary" section-title="Diary"></food-section>
 				<food-section section="foods.beverages" section-title="Beverages"></food-section>
 				<food-section section="foods.misc" section-title="Misc"></food-section>
-				<food-section section="foods.fastFoods" section-title="Fast Foods"></food-section>
+				<food-section section="foods.fastfoods" section-title="Fast Foods"></food-section>
 				<div class="empty-results" ng-if="!someResults">Sorry, no items found</div>
 			</div>
 		</div>
@@ -39,9 +41,9 @@
 			<div class="meal-title">Your meal so far...</div>
 			<div class="meal-empty" ng-hide="meal.items.length">
 				<p>
-					Search for items to add to your meal.
+					Search for things to add to your meal.
 					<br>
-					<span class="sample-text">Try "chicken", "apple", "juice"</span>
+					You can also search for snacks and drinks.
 				</p>
 			</div>
 			<div class="meal-items">
@@ -50,11 +52,41 @@
 				</div>
 			</div>
 			<div class="meal-metrics" ng-show="meal.items.length">
-				<div>Total Calories: {{meal.metrics.energy_kcal}}</div>
+				<div>Total Calories: {{getTotal('energy_kcal')}}</div>
+				<div>Total Fat: {{getTotal('total_fat_g')}}</div>
+				<div>Total Sodium: {{getTotal('sodium_mg')}}</div>
+				<div>Total Protein: {{getTotal('protein_g')}}</div>
 			</div>
 			<div class="meal-ops" ng-show="meal.items.length">
-				<button type="button" class="op btn btn-success btn-sm" ng-click="addMeal()">Add Meal</button>
+				<button type="button" class="op btn btn-success btn-sm" ng-click="checkScore()">Add Meal</button>
 			</div>	
 		</div>
 	</div>
+</div>
+
+<div class="modal fade" id="check-score-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Meal Score</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="well">
+      		<img class="meal-score-icon" ng-if="meal.score > 0" src="images/good.png">
+      		<div class="meal-score-desc" ng-if="meal.score > 0">Great! This is a nutrious meal.</div>
+
+      		<img class="meal-score-icon" ng-if="meal.score === 0" src="images/neutral.png">
+      		<div class="meal-score-desc" ng-if="meal.score === 0">Good start, but you can do better. Go back and try looking for more nutrious items.</div>
+
+      		<img class="meal-score-icon" ng-if="meal.score < 0" src="images/sad.png">
+      		<div class="meal-score-desc" ng-if="meal.score < 0">This meal doesn't look so nutrious. Try replacing some items with more nutrious choices.</div>
+      	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      	<button type="button" class="op btn btn-success" ng-click="addMeal()">Add Meal</button>
+      </div>
+    </div>
+  </div>
 </div>

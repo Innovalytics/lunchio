@@ -2,6 +2,10 @@
   outline: none;
 }
 
+a:focus {
+  outline: none !important;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -11,6 +15,10 @@
 
 body {
   padding: 0;
+}
+
+main.container {
+  margin-bottom: 80px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -92,6 +100,10 @@ body {
 
 .all-meals-nav i {
   margin-right: 8px;
+}
+
+i.fa {
+  margin-right: 4px;
 }
 
 /* Responsive: Portrait tablets and up */

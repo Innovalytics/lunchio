@@ -8,9 +8,9 @@
  * Service in the lunchioApp.
  */
 angular.module('lunchioApp')
-  .service('Foodservice', ['$http', '$log', function ($http, $log) {
-		var NAMARA_API_KEY = 'de8b99fc46d44e6f3db0bd841ae7f007618c6393ed9d35c43d68e75c62dd9180';
-		var NAMARA_API_KEY_2 = '3640b953bdec14e68370fb5772e35fb7c9ca32167fa229378dd4d5003876cf2e';
+  .service('Foodservice', ['$http', function ($http) {
+		//var NAMARA_API_KEY = 'de8b99fc46d44e6f3db0bd841ae7f007618c6393ed9d35c43d68e75c62dd9180';
+		//var NAMARA_API_KEY_2 = '3640b953bdec14e68370fb5772e35fb7c9ca32167fa229378dd4d5003876cf2e';
 		var NAMARA_API_KEY_3 = 'f2088de5083cadca54a8ba7351730ee5afd3eee767c092d1fd96f69dcdb38969';
 
 		var categories = {
@@ -77,13 +77,13 @@ angular.module('lunchioApp')
 				};
 
 				$http.get(url, options)
-					.success(function (data, status) {
+					.success(function (data) {
 						localStorage[key] = JSON.stringify(data);
 						callback(null, data);
 					})
-					.error(function (data, status) {
+					.error(function () {
 						callback('Error getting food');
 					});
 			}
-		}
+		};
   }]);
