@@ -8,7 +8,7 @@
  * Controller of the lunchioApp
  */
 angular.module('lunchioApp')
-  .controller('MealCtrl', ['$scope', '$rootScope', 'Foodservice', function ($scope, $rootScope, Foodservice) {
+  .controller('MealCtrl', ['$scope', 'Foodservice', 'Allmealsservice', function ($scope, Foodservice, Allmealsservice) {
 
     function emptyMeal() {
       $scope.meal = {
@@ -64,7 +64,7 @@ angular.module('lunchioApp')
     }
 
     $scope.addMeal = function () {
-      $rootScope.$broadcast('addMeal', $scope.meal);
+      Allmealsservice.add($scope.meal);
       emptyMeal();
       clearSearchResults();
     }

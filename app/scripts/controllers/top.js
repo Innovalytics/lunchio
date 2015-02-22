@@ -8,16 +8,10 @@
  * Controller of the lunchioApp
  */
 angular.module('lunchioApp')
-  .controller('TopCtrl', function ($scope) {
-    $scope.all = {
-    	meals: []
-    };
+  .controller('TopCtrl', ['$scope', 'Allmealsservice', function ($scope, Allmealsservice) {
+  	$scope.allMealsCount = Allmealsservice.getAll().length;
 
-    $scope.showAllMeals = function () {
-    	console.log($scope.all);
-    }
-
-    $scope.$on('addMeal', function (event, meal) {
-    	$scope.all.meals.push(meal);
-    })
-  });
+  	$scope.$on('mealAdded', function () {
+	  	$scope.allMealsCount = Allmealsservice.getAll().length;
+  	});
+  }]);
