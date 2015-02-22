@@ -1,7 +1,7 @@
 <div class="meal-item" ng-click="showDetails()">
 	<div class="meal-item-title">
-		<span ng-bind="item.food_name"></span>
-		<span ng-bind=" '(' + item.measure + ')'"></span>
+		<div ng-bind="item.food_name"></div>
+		<div ng-bind="'(' + item.measure + ')'"></div>
 	</div>
 	<div class="meal-item-details" ng-show="displayDetails">
 		<table class="table">
@@ -10,7 +10,7 @@
 				<td ng-bind="item.energy_kcal"></td>
 			</tr>
 		</table>
-		<div class="meal-ops">
+		<div class="meal-item-ops">
 			<span class="op" ng-click="remove()"><i class="fa fa-times"></i> Remove</span>
 		</div>
 	</div>

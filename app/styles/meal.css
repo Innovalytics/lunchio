@@ -2,6 +2,10 @@
 	margin-bottom: 24px;
 }
 
+.sample-text {
+	color: #898989;
+}
+
 .food-section-title, .empty-results {
 	text-transform: uppercase;
 	font-weight: bold;
@@ -33,6 +37,10 @@
 	color: #458B00;
 }
 
+.meal-pnl {
+	position: fixed;
+}
+
 .meal-title {
 	font-weight: bold;
 	font-size: 18px;
@@ -61,13 +69,31 @@
 	margin-bottom: 4px;
 }
 
-.meal-ops {
+.meal-item-ops {
 	border-top: 1px dotted #cccccc;
 	text-align: right;
 }
 
-.meal-ops .op {
+.meal-item-ops .op {
 	font-size: 8px;
 	text-transform: uppercase;
 	color: #343434;
 }
+
+.meal-empty {
+	margin: 12px 0;
+}
+
+.meal-metrics {
+	border-top: 1px solid #cccccc;
+	margin-top: 8px;
+	padding-top: 8px;
+}
+
+.meal-ops {
+	border-top: 1px solid #cccccc;
+	margin-top: 8px;
+	padding-top: 8px;
+	text-align: right;
+}
+

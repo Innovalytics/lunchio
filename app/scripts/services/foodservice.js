@@ -51,7 +51,7 @@ angular.module('lunchioApp')
 				href: 'http://api.namara.io/v0/data_sets/5824853c-ab12-44f5-a4c5-a56ea4c12a71/data/en-0'
 			},
 			vegetables: {
-				href: 'http://api.namara.io/v0/data_sets/205edcf7-9a0f-491a-88e7-88b68a3e60cc/data/en-0'
+				href: 'http://api.namara.io/v0/data_sets/205edcf7-9a0f-491a-88e7-88b68a3e60cc/data/en-1'
 			},
 			bread: {
 				href: 'http://api.namara.io/v0/data_sets/796a66b4-e3f7-4ebf-8765-4fc198c330ba/data/en-0'
